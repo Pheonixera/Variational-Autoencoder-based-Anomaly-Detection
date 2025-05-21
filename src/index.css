@@ -1,0 +1,94 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 226 30% 12%;
+    --foreground: 0 0% 98%;
+
+    --card: 224 30% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 224 30% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 252 87% 67%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 25% 27%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 215 25% 25%;
+    --muted-foreground: 240 5% 75%;
+
+    --accent: 12 90% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 215 25% 27%;
+    --input: 215 25% 27%;
+    --ring: 252 87% 67%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 226 31% 16%;
+    --sidebar-foreground: 240 5% 85%;
+    --sidebar-primary: 252 87% 67%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 25% 27%;
+    --sidebar-accent-foreground: 240 5% 85%;
+    --sidebar-border: 226 31% 20%;
+    --sidebar-ring: 252 87% 67%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.network-node {
+  fill: theme('colors.ids.blue');
+  stroke: theme('colors.background');
+  stroke-width: 2px;
+  transition: all 0.2s ease;
+}
+
+.network-node:hover {
+  fill: theme('colors.ids.purple');
+  transform: scale(1.1);
+}
+
+.network-link {
+  stroke: theme('colors.ids.darkGray');
+  stroke-opacity: 0.6;
+  stroke-width: 1.5px;
+}
+
+.network-link.active {
+  stroke: theme('colors.ids.purple');
+  stroke-opacity: 1;
+  stroke-width: 2px;
+  animation: pulse-subtle 2s infinite;
+}
+
+@keyframes pulse-subtle {
+  0% {
+    stroke-opacity: 0.6;
+  }
+  50% {
+    stroke-opacity: 1;
+  }
+  100% {
+    stroke-opacity: 0.6;
+  }
+}
