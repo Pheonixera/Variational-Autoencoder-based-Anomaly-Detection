@@ -1,1 +1,154 @@
-README
+🛡️ Variational Autoencoder (VAE) Based Anomaly Detection IDS
+
+
+📌 Project Overview
+
+This project implements an Intrusion Detection System (IDS) using a Variational Autoencoder (VAE) for anomaly detection. The IDS identifies deviations in network traffic patterns and flags anomalous behavior, using the NSL-KDD dataset.
+
+⚙️ How It Works
+
+🔍 Anomaly Detection Using VAE
+
+The Variational Autoencoder learns a compressed (latent) representation of normal network traffic patterns during training.
+
+During inference (testing), the VAE attempts to reconstruct the input data.
+
+Reconstruction Error (difference between input and output) is used as the anomaly score.
+
+If the reconstruction error exceeds a learned threshold, the instance is classified as anomalous.
+
+🗂️ Project Files
+
+File	Description
+
+Preprocess.py	Main script. Handles preprocessing, model training, and anomaly detection.
+KDDTrain+_20Percent.arff	Training dataset (subset of NSL-KDD).
+KDDTest+.arff	Testing dataset.
+vae_model.pth	Saved model weights after training.
+IDS_SRS report	General report on IDS (not specific to this project).
+
+🧪 Model Details
+
+🧠 VAE Architecture
+
+Encoder: Fully connected layers to reduce dimensionality.
+
+Latent Space: Mean & log-variance layers.
+
+Decoder: Reconstructs input from latent representation.
+
+Activation: ReLU (encoder/decoder), Sigmoid (output layer).
+
+🔢 Loss Function
+
+The VAE minimizes a combined loss:
+
+Reconstruction Loss: Measures how accurately the input is reconstructed (Mean Squared Error).
+
+KL Divergence: Encourages the latent space distribution to resemble a Gaussian.
+
+vae_loss = MSELoss + KL_Divergence
+
+🧾 Anomaly Criteria
+
+Reconstruction Error (MSE) is calculated for each input.
+
+A threshold is computed (e.g., 95th percentile) on the training reconstruction errors.
+
+Any test input with reconstruction error above this threshold is marked as anomaly.
+
+▶️ How to Run
+
+✅ Prerequisites
+
+Python 3.x
+
+Install dependencies:
+
+pip install torch pandas numpy scikit-learn scipy
+
+🚀 Execution Steps
+
+🔁 First Run (Training):
+
+python Preprocess.py
+
+Loads and preprocesses KDDTrain+_20Percent.arff.
+
+Trains the VAE model.
+
+Saves the model to vae_model.pth.
+
+🔍 Second Run (Testing):
+
+python Preprocess.py
+
+Loads the trained model.
+
+Preprocesses KDDTest+.arff.
+
+Tests data using VAE.
+
+Outputs anomalies based on reconstruction error and threshold.
+
+📤 Sample Anomaly Output
+
+timestamp: 2025-05-21T12:34:56.789000Z
+src_ip: 192.168.1.100
+dst_ip: 10.0.0.5
+anomaly_type: Network Traffic Anomaly
+severity: High
+deviation_score: 23.56
+description: Detected abnormal network pattern with reconstruction error 0.2356
+action_taken: Logged for review
+protocol: tcp
+
+🧼 Preprocessing Highlights
+
+ARFF File Cleaning: Fixes inconsistencies in categorical value syntax.
+
+Label Encoding: For categorical features (protocol_type, service, flag).
+
+Scaling: All numerical values scaled between 0 and 1 using MinMaxScaler.
+
+Binary Labeling: "normal" = 0, all other types = 1 (for testing accuracy).
+
+📈 Thresholding Strategy
+
+Threshold for anomalies is set at the 95th percentile of reconstruction errors from training data.
+
+This value is used during testing to distinguish normal vs anomalous inputs.
+
+🧠 Technologies Used
+
+Python
+
+PyTorch – For building and training the VAE.
+
+scikit-learn – Label encoding, scaling.
+
+pandas & numpy – Data processing.
+
+scipy.io.arff – Loading NSL-KDD dataset.
+
+📚 Reference Dataset
+
+NSL-KDD Dataset
+
+KDDTrain+_20Percent.arff
+
+KDDTest+.arff
+
+🔐 Note
+
+The current setup uses static IP placeholders (src_ip, dst_ip). In a production environment, this would be dynamically extracted from live packet data.
+
+✅ Future Improvements
+
+Integrate with real-time packet capture tools (like scapy or tshark).
+
+Store anomaly logs in a database (e.g., MongoDB).
+
+Develop a frontend dashboard to visualize anomaly trends.
+
+Enable online learning to adapt the VAE model continuously.
