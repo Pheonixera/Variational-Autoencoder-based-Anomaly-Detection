@@ -5,6 +5,8 @@
 
 This project implements an Intrusion Detection System (IDS) using a Variational Autoencoder (VAE) for anomaly detection. The IDS identifies deviations in network traffic patterns and flags anomalous behavior, using the NSL-KDD dataset.
 
+Access the SENTINEL website through this link: https://lovable.dev/projects/2dd16b21-fe18-4bcf-b28f-998098bc8979
+
 ⚙️ How It Works
 
 🔍 Anomaly Detection Using VAE
