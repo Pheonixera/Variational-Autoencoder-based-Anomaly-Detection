@@ -7,6 +7,8 @@ This project implements an Intrusion Detection System (IDS) using a Variational 
 
 Access the SENTINEL website through this link: https://lovable.dev/projects/2dd16b21-fe18-4bcf-b28f-998098bc8979
 
+NOTE:Frontend is done using Lovable.ai.
+
 ⚙️ How It Works
 
 🔍 Anomaly Detection Using VAE
