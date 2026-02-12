@@ -1,0 +1,516 @@
+{
+  "last_updated": "2026-01-04 18:04:07",
+  "summary": {
+    "session_info": {
+      "total_flows": 659,
+      "total_alerts": 328,
+      "total_packets": 659,
+      "normal_traffic": 331,
+      "start_time": "18:03:20",
+      "end_time": "18:04:04"
+    },
+    "statistics": {
+      "decisions": {
+        "NORMAL": 331,
+        "ATTACK": 328
+      },
+      "alert_levels": {
+        "HIGH": 188,
+        "MEDIUM": 140,
+        "LOW": 331
+      },
+      "protocols": {
+        "TCP": 617,
+        "UDP": 42
+      }
+    }
+  },
+  "recent_alerts": [
+    {
+      "timestamp": "18:04:00",
+      "src_ip": "34.54.84.110",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 52.266250279383435,
+      "classification": "ATTACK",
+      "alert_level": "MEDIUM"
+    },
+    {
+      "timestamp": "18:04:00",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "34.54.84.110",
+      "protocol": "TCP",
+      "recon_error": 52.399601740406816,
+      "classification": "ATTACK",
+      "alert_level": "MEDIUM"
+    },
+    {
+      "timestamp": "18:04:01",
+      "src_ip": "34.54.84.110",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 53.100439908071344,
+      "classification": "ATTACK",
+      "alert_level": "MEDIUM"
+    },
+    {
+      "timestamp": "18:04:01",
+      "src_ip": "34.54.84.110",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 53.66888260779537,
+      "classification": "ATTACK",
+      "alert_level": "MEDIUM"
+    },
+    {
+      "timestamp": "18:04:01",
+      "src_ip": "34.54.84.110",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 54.0928781635862,
+      "classification": "ATTACK",
+      "alert_level": "MEDIUM"
+    },
+    {
+      "timestamp": "18:04:01",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "34.54.84.110",
+      "protocol": "TCP",
+      "recon_error": 54.30007181089615,
+      "classification": "ATTACK",
+      "alert_level": "MEDIUM"
+    },
+    {
+      "timestamp": "18:04:01",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "142.250.183.10",
+      "protocol": "TCP",
+      "recon_error": 0.019882527597108273,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:01",
+      "src_ip": "142.250.183.10",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 0.06100955574851403,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:01",
+      "src_ip": "142.250.183.10",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 0.10665601405469825,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:01",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "142.250.183.10",
+      "protocol": "TCP",
+      "recon_error": 0.10885900269670157,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:01",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "142.250.183.10",
+      "protocol": "TCP",
+      "recon_error": 0.098924389494507,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:01",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "142.250.183.10",
+      "protocol": "TCP",
+      "recon_error": 0.11610025436380011,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:01",
+      "src_ip": "142.250.183.10",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 0.14165774209285997,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:01",
+      "src_ip": "142.250.183.10",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 0.1592887686013936,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:01",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "142.250.183.10",
+      "protocol": "TCP",
+      "recon_error": 0.049596687910668805,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:02",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "172.217.26.106",
+      "protocol": "TCP",
+      "recon_error": 2080.6606636391657,
+      "classification": "ATTACK",
+      "alert_level": "HIGH"
+    },
+    {
+      "timestamp": "18:04:02",
+      "src_ip": "142.250.183.10",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 0.05383250843198428,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:02",
+      "src_ip": "172.217.26.106",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 2088.6826248219995,
+      "classification": "ATTACK",
+      "alert_level": "HIGH"
+    },
+    {
+      "timestamp": "18:04:02",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "172.217.26.106",
+      "protocol": "TCP",
+      "recon_error": 2090.452842004484,
+      "classification": "ATTACK",
+      "alert_level": "HIGH"
+    },
+    {
+      "timestamp": "18:04:02",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "142.250.183.10",
+      "protocol": "TCP",
+      "recon_error": 0.018543262416581233,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:02",
+      "src_ip": "142.250.183.10",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 0.06944765623034996,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:02",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "142.250.183.10",
+      "protocol": "TCP",
+      "recon_error": 0.02933463188882444,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:02",
+      "src_ip": "142.250.183.10",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 0.07318110373185696,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:02",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "20.192.44.82",
+      "protocol": "TCP",
+      "recon_error": 0.17299880906748344,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:02",
+      "src_ip": "20.192.44.82",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 0.19399687783276842,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:02",
+      "src_ip": "34.54.84.110",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 56.3611149279274,
+      "classification": "ATTACK",
+      "alert_level": "MEDIUM"
+    },
+    {
+      "timestamp": "18:04:02",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "34.54.84.110",
+      "protocol": "TCP",
+      "recon_error": 56.54094950826431,
+      "classification": "ATTACK",
+      "alert_level": "MEDIUM"
+    },
+    {
+      "timestamp": "18:04:02",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "34.54.84.110",
+      "protocol": "TCP",
+      "recon_error": 56.66559235728078,
+      "classification": "ATTACK",
+      "alert_level": "MEDIUM"
+    },
+    {
+      "timestamp": "18:04:02",
+      "src_ip": "34.54.84.110",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 57.148945919747334,
+      "classification": "ATTACK",
+      "alert_level": "MEDIUM"
+    },
+    {
+      "timestamp": "18:04:03",
+      "src_ip": "34.54.84.110",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 57.666828904748485,
+      "classification": "ATTACK",
+      "alert_level": "MEDIUM"
+    },
+    {
+      "timestamp": "18:04:03",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "34.54.84.110",
+      "protocol": "TCP",
+      "recon_error": 57.721146497211784,
+      "classification": "ATTACK",
+      "alert_level": "MEDIUM"
+    },
+    {
+      "timestamp": "18:04:03",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "142.250.183.10",
+      "protocol": "TCP",
+      "recon_error": 0.01667440496211054,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:03",
+      "src_ip": "142.250.183.10",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 0.1301558790923943,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:03",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "142.250.183.10",
+      "protocol": "TCP",
+      "recon_error": 0.026205781926426582,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:03",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "142.250.183.10",
+      "protocol": "TCP",
+      "recon_error": 0.025091767685737235,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:03",
+      "src_ip": "142.250.183.10",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 0.06546266424757506,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:03",
+      "src_ip": "142.250.183.10",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 0.05131835241406584,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:03",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "142.250.183.10",
+      "protocol": "TCP",
+      "recon_error": 0.023648167074262063,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:03",
+      "src_ip": "142.250.183.10",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 0.09059943584063634,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:03",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "192.168.196.99",
+      "protocol": "TCP",
+      "recon_error": 0.034235455554299264,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:03",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "3.233.158.112",
+      "protocol": "TCP",
+      "recon_error": 0.019432355529197316,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:03",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "216.239.38.223",
+      "protocol": "TCP",
+      "recon_error": 1192.396835675448,
+      "classification": "ATTACK",
+      "alert_level": "HIGH"
+    },
+    {
+      "timestamp": "18:04:03",
+      "src_ip": "216.239.38.223",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 1527.9158452411796,
+      "classification": "ATTACK",
+      "alert_level": "HIGH"
+    },
+    {
+      "timestamp": "18:04:04",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "142.250.183.10",
+      "protocol": "TCP",
+      "recon_error": 0.017497520064438818,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:04",
+      "src_ip": "142.250.183.10",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 0.07168439026951491,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:04",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "142.250.183.10",
+      "protocol": "TCP",
+      "recon_error": 0.02488141906781298,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:04",
+      "src_ip": "142.250.183.10",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 0.08270688693407162,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:04",
+      "src_ip": "142.250.183.10",
+      "dst_ip": "192.168.1.9",
+      "protocol": "TCP",
+      "recon_error": 0.12151942774556622,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:04",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "142.250.183.10",
+      "protocol": "TCP",
+      "recon_error": 0.15013553054561582,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    },
+    {
+      "timestamp": "18:04:04",
+      "src_ip": "192.168.1.9",
+      "dst_ip": "142.250.183.10",
+      "protocol": "TCP",
+      "recon_error": 0.11761917696502538,
+      "classification": "NORMAL",
+      "alert_level": "LOW"
+    }
+  ],
+  "top_suspicious": [
+    {
+      "ip": "192.168.1.9",
+      "attack_count": 122,
+      "avg_error": 589.0296633692727,
+      "threat_level": "HIGH"
+    },
+    {
+      "ip": "216.239.38.223",
+      "attack_count": 57,
+      "avg_error": 1217.4629607781376,
+      "threat_level": "HIGH"
+    },
+    {
+      "ip": "142.250.183.10",
+      "attack_count": 42,
+      "avg_error": 210.7953722657875,
+      "threat_level": "HIGH"
+    },
+    {
+      "ip": "172.217.26.106",
+      "attack_count": 37,
+      "avg_error": 918.830768570954,
+      "threat_level": "HIGH"
+    },
+    {
+      "ip": "34.54.84.110",
+      "attack_count": 26,
+      "avg_error": 104.95343683802095,
+      "threat_level": "MEDIUM"
+    }
+  ],
+  "threshold": {
+    "vae": 18.2734,
+    "model": "VAE (Variational Autoencoder)"
+  }
+}
