@@ -1,154 +1,194 @@
-🛡️ Variational Autoencoder (VAE) Based Anomaly Detection IDS
+🔐 Network Intrusion Detection System (NIDS) using Machine Learning
 
+A production-oriented Network Intrusion Detection System (NIDS) built using unsupervised and supervised machine learning techniques on the CICIDS2017-18 dataset, with real-time packet capture and anomaly detection capabilities.
 
 📌 Project Overview
 
-This project implements an Intrusion Detection System (IDS) using a Variational Autoencoder (VAE) for anomaly detection. The IDS identifies deviations in network traffic patterns and flags anomalous behavior, using the NSL-KDD dataset.
+This project implements a hybrid intrusion detection framework combining:
 
-Access the SENTINEL website through this link: https://lovable.dev/projects/2dd16b21-fe18-4bcf-b28f-998098bc8979
+Isolation Forest (baseline unsupervised model)
 
-NOTE:Frontend is done using Lovable.ai.
+Variational Autoencoder (VAE) for reconstruction-based anomaly detection
 
-⚙️ How It Works
+Random Forest (Multi-class) for attack-type classification
 
-🔍 Anomaly Detection Using VAE
+Live Packet Capture Engine using Scapy
 
-•	The Variational Autoencoder learns a compressed (latent) representation of normal network traffic patterns during training.
+Feature extraction based on 52 CIC flow-based network statistics
 
-•	During inference (testing), the VAE attempts to reconstruct the input data.
+The system is designed to bridge academic research and real-world deployment, emphasizing low false alarm rates and production robustness.
 
-•	Reconstruction Error (difference between input and output) is used as the anomaly score.
+🧠 Dataset
 
-•	If the reconstruction error exceeds a learned threshold, the instance is classified as anomalous.
+Dataset: CICIDS2017-18
 
-🗂️ Project Files
+Total Samples: ~2.5 million network flows
 
-Preprocess.py	Main script. Handles preprocessing, model training, and anomaly detection.
-KDDTrain+_20Percent.arff	Training dataset (subset of NSL-KDD).
-KDDTest+.arff		Testing dataset.
-vae_model.pth	Saved model weights after training.
-IDS_SRS report	General report on IDS (not specific to this project).
+Features: 52 flow-based statistical features
 
-🧪 Model Details
+Binary Classification: Normal vs Attack
 
-🧠 VAE Architecture
+Multi-class Extension: DDoS, DoS, PortScan, Brute Force, Botnet, etc.
 
-•	Encoder: Fully connected layers to reduce dimensionality.
+The dataset was preprocessed, normalized, and split into training and testing sets (80/20 split).
 
-•	Latent Space: Mean & log-variance layers.
+🏗 Project Structure
+├── Notebooks/
+  ├── 01_data_exploration.ipynb
+  ├── 02_data_preprocessing.ipynb
+  ├── 03_baseline_isolation_forest.ipynb
+  ├── 04_Random_Forest_multiclass.ipynb
+  ├── 05_advanced_VAE.ipynb
+  ├── 07_packet_capture_engine.ipynb
+├── data/
+├── models/
+├── results/
 
-•	Decoder: Reconstructs input from latent representation.
+📊 Model Implementations
 
-•	Activation: ReLU (encoder/decoder), Sigmoid (output layer).
+1️⃣ Isolation Forest (Baseline)
 
-🔢 Loss Function
+Unsupervised anomaly detection
 
-The VAE minimizes a combined loss:
+100 trees
 
-•	Reconstruction Loss: Measures how accurately the input is reconstructed (Mean Squared Error).
+Contamination ≈ 17%
 
-•	KL Divergence: Encourages the latent space distribution to resemble a Gaussian.
+Fast training and inference
 
-vae_loss = MSELoss + KL_Divergence
+Performance:
 
-🧾 Anomaly Criteria
+Accuracy: ~82–83%
 
-•	Reconstruction Error (MSE) is calculated for each input.
+Precision: ~48.6%
 
-•	A threshold is computed (e.g., 95th percentile) on the training reconstruction errors.
+Recall: ~49%
 
-•	Any test input with reconstruction error above this threshold is marked as anomaly.
+False Alarm Rate: ~10.5%
 
-▶️ How to Run
+Serves as statistical baseline.
 
-✅ Prerequisites
+2️⃣ Variational Autoencoder (Advanced Anomaly Model)
 
-Python 3.x
+Architecture:
 
-Install dependencies:
+52 → 32 → 16 → 8 (Latent Space)
+8 → 16 → 32 → 52 (Reconstruction)
 
-pip install torch pandas numpy scikit-learn scipy
 
-🚀 Execution Steps
+Loss: MSE + KL Divergence
 
-🔁 First Run (Training):
+Threshold: 90th percentile of normal reconstruction error
 
-•	python Preprocess.py
+Trained only on normal traffic
 
-•	Loads and preprocesses KDDTrain+_20Percent.arff.
+Performance:
 
-•	Trains the VAE model.
+Accuracy: 90.17%
 
-•	Saves the model to vae_model.pth.
+Precision: 85.29%
 
-🔍 Second Run (Testing):
+Recall: 50.51%
 
-•	python Preprocess.py
+False Alarm Rate: 1.77%
 
-•	Loads the trained model.
+~8–9% reduction in false alarms vs Isolation Forest
 
-•	Preprocesses KDDTest+.arff.
+The VAE significantly improves precision and reduces alert noise.
 
-•	Tests data using VAE.
+3️⃣ Random Forest (Multi-class)
 
-•	Outputs anomalies based on reconstruction error and threshold.
+Supervised multi-class attack classification
 
-📤 Sample Anomaly Output
+Used to identify specific attack types
 
-timestamp: 2025-05-21T12:34:56.789000Z
-src_ip: 192.168.1.100
-dst_ip: 10.0.0.5
-anomaly_type: Network Traffic Anomaly
-severity: High
-deviation_score: 23.56
-description: Detected abnormal network pattern with reconstruction error 0.2356
-action_taken: Logged for review
-protocol: tcp
+Complements anomaly detection framework
 
-🧼 Preprocessing Highlights
+⚙️ Real-Time Packet Capture Engine
 
-•	ARFF File Cleaning: Fixes inconsistencies in categorical value syntax.
+Implemented using Scapy:
 
-•	Label Encoding: For categorical features (protocol_type, service, flag).
+Live packet sniffing
 
-•	Scaling: All numerical values scaled between 0 and 1 using MinMaxScaler.
+5-tuple bidirectional flow aggregation
 
-•	Binary Labeling: "normal" = 0, all other types = 1 (for testing accuracy).
+Extraction of 52 CIC-based features
 
-📈 Thresholding Strategy
+Real-time anomaly inference
 
-•	Threshold for anomalies is set at the 95th percentile of reconstruction errors from training data.
+Designed for ~90 packets/sec processing (CPU-only)
 
-•	This value is used during testing to distinguish normal vs anomalous inputs.
+Includes safeguards:
 
-🧠 Technologies Used
+NaN/Inf handling
 
-•	Python
+Safe division logic
 
-•	PyTorch – For building and training the VAE.
+Fallback mechanisms
 
-•	scikit-learn – Label encoding, scaling.
+📈 Key Insights
 
-•	pandas & numpy – Data processing.
+VAE reduces false alarm rate dramatically compared to Isolation Forest.
 
-•	scipy.io.arff – Loading NSL-KDD dataset.
+Reconstruction error provides strong separation between normal and attack flows.
 
-📚 Reference Dataset
+Precision improvements are more significant than recall improvements.
 
-•	NSL-KDD Dataset
+False positive reduction is critical for SOC usability.
 
-•	KDDTrain+_20Percent.arff
+🛠 Tech Stack
 
-•	KDDTest+.arff
+Python 3.13
 
-🔐 Note
+TensorFlow / Keras
 
-The current setup uses static IP placeholders (src_ip, dst_ip). In a production environment, this would be dynamically extracted from live packet data.
+Scikit-learn
 
-✅ Future Improvements
+NumPy / Pandas
 
-•	Integrate with real-time packet capture tools (like scapy or tshark).
+Matplotlib / Seaborn
 
-•	Store anomaly logs in a database (e.g., MongoDB).
+Scapy
 
-•	Enable online learning to adapt the VAE model continuously.
+Jupyter Notebook
+
+🚀 How to Run
+
+1️⃣ Install Dependencies
+
+pip install -r requirements.txt
+
+2️⃣ Workflow Order
+
+Run 01_data_exploration.ipynb
+
+Run 02_data_preprocessing.ipynb
+
+Train baseline: 03_baseline_isolation_forest.ipynb
+
+Train deep model: 05_advanced_VAE.ipynb
+
+Optional: Multi-class 04_Random_Forest_multiclass.ipynb
+
+Run real-time engine: 07_packet_capture_engine.ipynb
+
+📌 Future Improvements
+
+ROC/AUC and threshold sensitivity analysis
+
+Adaptive dynamic thresholding
+
+Model quantization (INT8) for faster inference
+
+SIEM integration
+
+Multi-dataset validation (UNSW-NB15, NSL-KDD)
+
+🎯 Project Goal
+
+To design a low-noise, production-oriented anomaly detection system that balances detection capability with operational practicality in real network environments.
+
+👨‍💻 Author
+
+Final Year Computer Science Engineering Project
+Focused on Cybersecurity, Anomaly Detection, and Real-Time Network Monitoring.
