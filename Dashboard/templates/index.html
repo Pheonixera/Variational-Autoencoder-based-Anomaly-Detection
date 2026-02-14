@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIDS Dashboard - Real-Time Monitoring</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🛡️ Network Intrusion Detection System</h1>
+            <p class="subtitle">Real-Time Monitoring Dashboard</p>
+            <div class="status-indicator">
+                <span class="status-dot" id="statusDot"></span>
+                <span id="statusText">Loading...</span>
+            </div>
+        </header>
+
+        <!-- Statistics Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="totalFlows">0</div>
+                    <div class="stat-label">Total Flows</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">📦</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="totalPackets">0</div>
+                    <div class="stat-label">Packets Captured</div>
+                </div>
+            </div>
+
+            <div class="stat-card alert-card">
+                <div class="stat-icon">⚠️</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="totalAlerts">0</div>
+                    <div class="stat-label">Alerts Raised</div>
+                </div>
+            </div>
+
+            <div class="stat-card safe-card">
+                <div class="stat-icon">✓</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="normalFlows">0</div>
+                    <div class="stat-label">Normal Traffic</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-grid">
+            <div class="chart-container">
+                <h3>Detection Results</h3>
+                <canvas id="decisionChart"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h3>Alert Levels</h3>
+                <canvas id="alertChart"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h3>Protocol Distribution</h3>
+                <canvas id="protocolChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Recent Alerts Table -->
+        <div class="table-container">
+            <h3>🚨 Recent Alerts (Last 20)</h3>
+            <div class="table-wrapper">
+                <table id="alertsTable">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Source IP</th>
+                            <th>Dest Port</th>
+                            <th>Protocol</th>
+                            <th>Packets</th>
+                            <th>VAE Error</th>
+                            <th>Decision</th>
+                            <th>Level</th>
+                        </tr>
+                    </thead>
+                    <tbody id="alertsTableBody">
+                        <tr>
+                            <td colspan="8" class="loading">Loading data...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Last Updated: <span id="lastUpdate">Never</span></p>
+            <p>NIDS Project | Auto-refresh every 5 seconds</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+
+</html>
