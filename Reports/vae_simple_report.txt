@@ -1,0 +1,44 @@
+======================================================================
+SIMPLE VAE - INTRUSION DETECTION SYSTEM REPORT
+======================================================================
+
+MODEL CONFIGURATION:
+----------------------------------------------------------------------
+  Input features: 52
+  Latent dimensions: 8
+  Encoder architecture: 52 -> 32 -> 16 -> 8
+  Decoder architecture: 8 -> 16 -> 32 -> 52
+  Loss function: MSE + 0.001 x KL Divergence
+  Optimizer: Adam (learning rate = 0.0001)
+
+TRAINING RESULTS:
+----------------------------------------------------------------------
+  Training time: 1.75 minutes (105 seconds)
+  Epochs completed: 15
+  Final training loss: 0.1059
+
+ANOMALY DETECTION CONFIGURATION:
+----------------------------------------------------------------------
+  Method: Reconstruction Error Thresholding
+  Threshold (90th percentile): 0.1911
+  Reconstruction error mean: 0.1671
+  Reconstruction error std: 12.9985
+
+BINARY IDS PERFORMANCE:
+----------------------------------------------------------------------
+  Accuracy:  0.9017 (90.17%)
+  Precision: 0.8529 (85.29%)
+  Recall:    0.5051 (50.51%)
+  F1-Score:  0.6344 (63.44%)
+  False Alarm Rate: 0.02%
+  Missed Attacks: 42,139 of 85,139
+
+COMPARISON WITH ISOLATION FOREST BASELINE:
+----------------------------------------------------------------------
+  Accuracy improvement: +0.08%
+  Precision improvement: +0.37%
+  Recall improvement: +0.01%
+  F1-Score improvement: +0.15%
+  Missed attacks reduction: -1,252
+
+======================================================================

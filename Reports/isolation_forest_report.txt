@@ -1,0 +1,42 @@
+============================================================
+ISOLATION FOREST - BASELINE MODEL REPORT
+============================================================
+
+DATASET INFORMATION:
+  Training samples: 2,016,600
+  Testing samples: 504,151
+  Number of features: 52
+
+MODEL PARAMETERS:
+  Contamination: 0.17 (17%)
+  N_estimators: 100
+  Random_state: 42
+
+PERFORMANCE METRICS:
+  Training time: 9.37 seconds (0.16 minutes)
+  Prediction time: 2.03 seconds
+  Average prediction time per sample: 0.0040 ms
+
+CLASSIFICATION METRICS:
+              precision    recall  f1-score   support
+
+      Normal       0.90      0.89      0.90    419012
+      Attack       0.49      0.49      0.49     85139
+
+    accuracy                           0.83    504151
+   macro avg       0.69      0.69      0.69    504151
+weighted avg       0.83      0.83      0.83    504151
+
+============================================================
+CONFUSION MATRIX:
+  True Negatives (TN):  374,866
+  False Positives (FP): 44,146
+  False Negatives (FN): 43,391
+  True Positives (TP):  41,748
+
+IDS-SPECIFIC METRICS:
+  False Alarm Rate: 10.54%
+  Attack Detection Rate (Recall): 49.04%
+  Missed Attacks: 43,391 out of 85,139
+
+============================================================
